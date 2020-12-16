@@ -1,17 +1,78 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
+<!-- home.page.html -->
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+
+      <ion-buttons slot="primary">
+        <ion-button>
+          <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+        </ion-button>
+        <ion-button>
+          <ion-icon slot="icon-only" ios="ellipsis-vertical" md="ellipsis-vertical"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+      <ion-title> All recipes</ion-title>
+
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+
+        <ion-slides pager="true" [options]="slideOptsOne" #slideWithNav
+          (ionSlideDidChange)="SlideDidChange(sliderOne,slideWithNav)">
+          <ion-slide *ngFor="let s of sliderOne.slidesItems">
+            <img src="../../assets/img/img1.jpg">
+            <span class="slide-text">Slide id {{s.id}}</span>
+          </ion-slide>
+        </ion-slides>
+
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-grid>
+    <h5>Category</h5>
+    <ion-row>
+      <ion-col size="1">
+        <span class="slider-nav arrow-prev" (click)="slidePrev(sliderTwo,slideWithNav2)">
+          <div class="prev-icon-custom custon-nav" [class.disabled]="sliderTwo.isBeginningSlide"></div>
+        </span>
+      </ion-col>
+      <ion-col size="10">
+
+        <ion-slides pager="false" [options]="slideOptsTwo" #slideWithNav2
+          (ionSlideDidChange)="SlideDidChange(sliderTwo,slideWithNav2)">
+          <ion-slide *ngFor="let s of sliderTwo.slidesItems">
+            <img src="../../assets/img/img1.jpg">
+          </ion-slide>
+        </ion-slides>
+
+      </ion-col>
+      <ion-col size="1">
+        <span class="slider-nav arrow-next" (click)="slideNext(sliderTwo,slideWithNav2)">
+          <div class="next-icon-custom custon-nav" [class.disabled]="sliderTwo.isEndSlide"></div>
+        </span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-grid>
+    <h5>Recent</h5>
+    <ion-row>
+      <ion-col size="6">
+        <img src="../../assets/img/img1.jpg" />
+      </ion-col>
+      <ion-col size="6">
+        <img src="../../assets/img/img1.jpg" />
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 </ion-content>
