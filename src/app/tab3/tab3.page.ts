@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  recipesCategory: any ; 
+  recipesCategory: any;
 
   constructor() {
 
@@ -16,33 +16,40 @@ export class Tab3Page {
       isEndSlide: false,
       items: [
         {
-          name : 'Cakes & Pancakes' ,
+          name: 'Cakes & Pancakes',
           image: 'assets/img/C1.jpg'
         },
         {
-          name : 'Sweets & Halwa',
+          name: 'Sweets & Halwa',
           image: 'assets/img/C1.jpg'
         },
         {
-          name : 'Chinese & Italian',
+          name: 'Chinese & Italian',
           image: 'assets/img/C3.jpg'
         },
         {
-          name : 'Kebab & Parathas',
+          name: 'Kebab & Parathas',
           image: 'assets/img/C1.jpg'
         },
         {
-          name : 'Sea food',
+          name: 'Sea food',
           image: 'assets/img/C1.jpg'
         },
         {
-          name : 'Drinks',
+          name: 'Drinks',
           image: 'assets/img/C1.jpg'
         }
       ]
-     }
+    }
 
 
   }
+
+
+
+  toggleDarkMode = () => {
+    document.body.classList.toggle('dark');
+  }
+
 
 }

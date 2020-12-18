@@ -1,11 +1,22 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+    <ion-title> All Category</ion-title>
+
+    <ion-buttons slot="primary">
+      <ion-icon slot="start" icon="moon" class="component-icon component-icon-dark"></ion-icon>
+      <ion-toggle slot="end" (click)=toggleDarkMode()></ion-toggle>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content [fullscreen]="true">
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+
+  <ion-card *ngFor="let c of recipesCategory.items">
+    <img src="{{c.image}}" />
+    <ion-card-header>
+      <ion-card-subtitle>{{c.name}}</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
 </ion-content>

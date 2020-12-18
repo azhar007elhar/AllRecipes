@@ -7,6 +7,63 @@ import { Component } from '@angular/core';
 })
 export class Tab4Page {
 
-  constructor() {}
+  recipes: any ; 
+
+
+  
+  constructor() {
+
+
+    this.recipes = {
+      isBeginningSlide: true,
+      isEndSlide: false,
+      items: [
+        {
+          name: 'Barbeque Sandwiches',
+          time: 25,
+          image: 'assets/img/R1.jpg',
+          category: 'Food',
+          favorite: '1'
+        },
+        {
+          name: 'Barbeque Sandwiches',
+          time: 25,
+          image: 'assets/img/R1.jpg',
+          category: 'Food',
+          favorite: '0'
+        }
+        ,
+        {
+          name: 'Barbeque Sandwiches',
+          time: 25,
+          image: 'assets/img/R1.jpg',
+          category: 'Food',
+          favorite: '0'
+        }
+        ,
+        {
+          name: 'Barbeque Sandwiches',
+          time: 25,
+          image: 'assets/img/R1.jpg',
+          category: 'Food',
+          favorite: '1'
+        }
+
+      ]
+    }
+
+
+    this.recipes.items = this.recipes.items.filter(rec => rec.favorite == 1 );
+    console.log(this.recipes.items);
+    
+
+  }
+
+
+  toggleDarkMode = () => {
+    document.body.classList.toggle('dark');
+  }
+
+
 
 }

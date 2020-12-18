@@ -3,12 +3,8 @@
     <ion-title> All recipes</ion-title>
 
     <ion-buttons slot="primary">
-      <ion-button>
-        <ion-icon slot="icon-only" name="search-outline"></ion-icon>
-      </ion-button>
-      <ion-button>
-        <ion-icon slot="icon-only" ios="ellipsis-vertical" md="ellipsis-vertical"></ion-icon>
-      </ion-button>
+      <ion-icon slot="start" icon="moon" class="component-icon component-icon-dark"></ion-icon>
+      <ion-toggle slot="end" (click)=toggleDarkMode()></ion-toggle>
     </ion-buttons>
 
 
@@ -18,7 +14,7 @@
 <!-- home.page.html -->
 <ion-content [fullscreen]="true">
 
-  <ion-list class="theme-list" lines="full">
+  <!-- <ion-list class="theme-list" lines="full">
     <ion-item>
       <ion-icon slot="start" icon="moon" class="component-icon component-icon-dark"></ion-icon>
       <ion-label>
@@ -26,7 +22,7 @@
       </ion-label>
       <ion-toggle slot="end" (click)=toggleDarkMode()></ion-toggle>
     </ion-item>
-  </ion-list>
+  </ion-list> -->
 
 
   <ion-grid>
@@ -48,38 +44,65 @@
 
 
   <ion-grid>
-    <h5>Category</h5>
+
     <ion-row>
-      <ion-col size="1">
+      <!-- <ion-col size="1">
         <span class="slider-nav arrow-prev" (click)="slidePrev(recipesCategory,slideWithNav2)">
           <div class="prev-icon-custom custon-nav" [class.disabled]="recipesCategory.isBeginningSlide"></div>
         </span>
+      </ion-col> -->
+
+      <ion-col size="6">
+        <h5>Category</h5>
       </ion-col>
-      <ion-col size="10">
+      <ion-col size="6" push="5">
+        <h5>
+          <ion-icon name="arrow-forward-outline" (click)="slideNext(recipesCategory,slideWithNav2)"></ion-icon>
+        </h5>
+      </ion-col>
+      <ion-col size="12">
 
         <ion-slides pager="false" [options]="slideOptsTwo" #slideWithNav2
           (ionSlideDidChange)="SlideDidChange(recipesCategory,slideWithNav2)">
           <ion-slide *ngFor="let s of recipesCategory.items">
             <img src="{{s.image}}" width="100" height="100">
+            <span class="slide-text2">{{s.name}}</span>
           </ion-slide>
         </ion-slides>
 
       </ion-col>
-      <ion-col size="1">
+      <!-- <ion-col size="1">
         <span class="slider-nav arrow-next" (click)="slideNext(recipesCategory,slideWithNav2)">
           <div class="next-icon-custom custon-nav" [class.disabled]="recipesCategory.isEndSlide"></div>
         </span>
-      </ion-col>
+      </ion-col> -->
     </ion-row>
   </ion-grid>
 
 
   <ion-grid>
-    <h5>Recent</h5>
+
     <ion-row>
-      <ion-col size="6" *ngFor="let s of recipesLatest.items">
-        <img src="{{s.image}}" />
+      <ion-col size="6">
+        <h5>Recent</h5>
       </ion-col>
+      <ion-col size="6" push="5">
+        <h5>
+          <ion-icon name="arrow-forward-outline" (click)="slideNext(recipesLatest,slideWithNav4)"></ion-icon>
+        </h5>
+      </ion-col>
+
+      <ion-col size="12">
+        <ion-slides pager="false" [options]="slideOptsTwo" #slideWithNav4
+        (ionSlideDidChange)="SlideDidChange(recipesLatest,slideWithNav2)">
+        <ion-slide *ngFor="let s of recipesLatest.items">
+          <img src="{{s.image}}" width="100" height="100">
+        </ion-slide>
+      </ion-slides>
+
+      </ion-col>
+
+
     </ion-row>
   </ion-grid>
 

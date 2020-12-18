@@ -14,6 +14,7 @@ export class Tab1Page {
   @ViewChild('slideWithNav', { static: false }) slideWithNav: IonSlides;
   @ViewChild('slideWithNav2', { static: false }) slideWithNav2: IonSlides;
   @ViewChild('slideWithNav3', { static: false }) slideWithNav3: IonSlides;
+  @ViewChild('slideWithNav4', { static: false }) slideWithNav4: IonSlides;
 
   sliderOne: any;
   sliderTwo: any;
@@ -50,6 +51,14 @@ export class Tab1Page {
         {
           name: 'Chicken White Rice',
           image: 'assets/img/R1.jpg'
+        },
+        {
+          name: 'Cocoa Sponge Cake',
+          image: 'assets/img/C2.png'
+        },
+        {
+          name: 'Cocoa Sponge Cake',
+          image: 'assets/img/C2.png'
         },
         {
           name: 'Cocoa Sponge Cake',
@@ -97,27 +106,31 @@ export class Tab1Page {
           name: 'Barbeque Sandwiches',
           time: 25,
           image: 'assets/img/R1.jpg',
-          category: 'Food'
+          category: 'Food',
+          favorite: '1'
         },
         {
           name: 'Barbeque Sandwiches',
           time: 25,
           image: 'assets/img/R1.jpg',
-          category: 'Food'
+          category: 'Food',
+          favorite: '1'
         }
         ,
         {
           name: 'Barbeque Sandwiches',
           time: 25,
           image: 'assets/img/R1.jpg',
-          category: 'Food'
+          category: 'Food',
+          favorite: '1'
         }
         ,
         {
           name: 'Barbeque Sandwiches',
           time: 25,
           image: 'assets/img/R1.jpg',
-          category: 'Food'
+          category: 'Food',
+          favorite: '1'
         }
 
       ]
@@ -126,7 +139,7 @@ export class Tab1Page {
   }
 
 
-  toggleDarkMode = () => {    
+  toggleDarkMode = () => {
     document.body.classList.toggle('dark');
   }
 
