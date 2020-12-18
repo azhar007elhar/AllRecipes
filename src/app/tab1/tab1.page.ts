@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
+import { AdmobService } from '../services/admob.service';
 
 @Component({
   selector: 'app-tab1',
@@ -42,7 +43,10 @@ export class Tab1Page {
   };
 
   constructor(
+    private AdmobService: AdmobService
   ) {
+
+    this.AdmobService.showBottomBanner();
 
     this.recipesLatest = {
       isBeginningSlide: true,

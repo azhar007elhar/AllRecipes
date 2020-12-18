@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AdmobService } from '../services/admob.service';
 
 @Component({
   selector: 'app-tab3',
@@ -11,7 +12,11 @@ export class Tab4Page {
 
 
   
-  constructor() {
+  constructor(
+    private AdmobService: AdmobService
+  ) {
+
+    this.AdmobService.showBottomBanner();
 
 
     this.recipes = {

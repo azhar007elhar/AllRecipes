@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AdmobService } from '../services/admob.service';
 
 @Component({
   selector: 'app-tab2',
@@ -8,7 +9,11 @@ import { Component } from '@angular/core';
 export class Tab2Page {
 
   recipes: any;
-  constructor() {
+  constructor(
+    private AdmobService: AdmobService
+  ) {
+
+    this.AdmobService.showBottomBanner();
 
     this.recipes = {
       isBeginningSlide: true,

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AdmobService } from '../services/admob.service';
 
 @Component({
   selector: 'app-tab3',
@@ -9,7 +10,11 @@ export class Tab3Page {
 
   recipesCategory: any;
 
-  constructor() {
+  constructor(
+    private AdmobService: AdmobService
+  ) {
+
+    this.AdmobService.showBottomBanner();
 
     this.recipesCategory = {
       isBeginningSlide: true,
