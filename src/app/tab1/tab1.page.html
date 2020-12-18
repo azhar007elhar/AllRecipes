@@ -1,32 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> All recipes</ion-title>
+
+    <ion-buttons slot="primary">
+      <ion-button>
+        <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon slot="icon-only" ios="ellipsis-vertical" md="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+
+  </ion-toolbar>
+</ion-header>
+
 <!-- home.page.html -->
 <ion-content [fullscreen]="true">
 
-  <ion-header>
-    <ion-toolbar>
-      <ion-title> All recipes</ion-title>
+  <ion-list class="theme-list" lines="full">
+    <ion-item>
+      <ion-icon slot="start" icon="moon" class="component-icon component-icon-dark"></ion-icon>
+      <ion-label>
+        Dark Mode
+      </ion-label>
+      <ion-toggle slot="end" (click)=toggleDarkMode()></ion-toggle>
+    </ion-item>
+  </ion-list>
 
-      <ion-buttons slot="primary">
-        <ion-button>
-          <ion-icon slot="icon-only" name="search-outline"></ion-icon>
-        </ion-button>
-        <ion-button>
-          <ion-icon slot="icon-only" ios="ellipsis-vertical" md="ellipsis-vertical"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-
-      
-    </ion-toolbar>
-  </ion-header>
 
   <ion-grid>
     <ion-row>
       <ion-col size="12">
 
         <ion-slides pager="true" [options]="slideOptsOne" #slideWithNav
-          (ionSlideDidChange)="SlideDidChange(sliderOne,slideWithNav)">
-          <ion-slide *ngFor="let s of sliderOne.slidesItems">
-            <img src="../../assets/img/img1.jpg">
-            <span class="slide-text">Slide id {{s.id}}</span>
+          (ionSlideDidChange)="SlideDidChange(recipes,slideWithNav)">
+          <ion-slide *ngFor="let s of recipes.items">
+            <img src="{{s.image}}">
+            <span class="slide-text">Slide id {{s.name}}</span>
           </ion-slide>
         </ion-slides>
 
@@ -40,23 +51,23 @@
     <h5>Category</h5>
     <ion-row>
       <ion-col size="1">
-        <span class="slider-nav arrow-prev" (click)="slidePrev(sliderTwo,slideWithNav2)">
-          <div class="prev-icon-custom custon-nav" [class.disabled]="sliderTwo.isBeginningSlide"></div>
+        <span class="slider-nav arrow-prev" (click)="slidePrev(recipesCategory,slideWithNav2)">
+          <div class="prev-icon-custom custon-nav" [class.disabled]="recipesCategory.isBeginningSlide"></div>
         </span>
       </ion-col>
       <ion-col size="10">
 
         <ion-slides pager="false" [options]="slideOptsTwo" #slideWithNav2
-          (ionSlideDidChange)="SlideDidChange(sliderTwo,slideWithNav2)">
-          <ion-slide *ngFor="let s of sliderTwo.slidesItems">
-            <img src="../../assets/img/img1.jpg">
+          (ionSlideDidChange)="SlideDidChange(recipesCategory,slideWithNav2)">
+          <ion-slide *ngFor="let s of recipesCategory.items">
+            <img src="{{s.image}}" width="100" height="100">
           </ion-slide>
         </ion-slides>
 
       </ion-col>
       <ion-col size="1">
-        <span class="slider-nav arrow-next" (click)="slideNext(sliderTwo,slideWithNav2)">
-          <div class="next-icon-custom custon-nav" [class.disabled]="sliderTwo.isEndSlide"></div>
+        <span class="slider-nav arrow-next" (click)="slideNext(recipesCategory,slideWithNav2)">
+          <div class="next-icon-custom custon-nav" [class.disabled]="recipesCategory.isEndSlide"></div>
         </span>
       </ion-col>
     </ion-row>
@@ -66,11 +77,8 @@
   <ion-grid>
     <h5>Recent</h5>
     <ion-row>
-      <ion-col size="6">
-        <img src="../../assets/img/img1.jpg" />
-      </ion-col>
-      <ion-col size="6">
-        <img src="../../assets/img/img1.jpg" />
+      <ion-col size="6" *ngFor="let s of recipesLatest.items">
+        <img src="{{s.image}}" />
       </ion-col>
     </ion-row>
   </ion-grid>
